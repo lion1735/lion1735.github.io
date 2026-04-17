@@ -69,8 +69,10 @@
         .movie-poster {
             width: 100%;
             max-width: 500px;
-            /* 비율을 2:4로 늘려 세로 길이를 확장했습니다 */
-            aspect-ratio: 2 / 4; 
+            /* 요청하신 수치 적용 */
+            height: 898px; 
+            margin: 0px auto 40px auto; /* margin-top: 0px 적용 */
+            
             background: 
                 linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 80%, #000 100%),
                 url('214b2eee-db15-4d8e-88db-f691aca5283a.jpeg') center/cover;
@@ -84,7 +86,6 @@
             padding: 4rem 2rem 3rem;
             text-align: center;
             overflow: hidden;
-            margin: 40px auto;
         }
 
         .movie-poster::after {
@@ -113,7 +114,7 @@
         .image-container {
             width: 100%;
             max-width: 500px;
-            margin: 40px auto 20px;
+            margin: 0px auto 20px auto; /* 귀여운 버전도 상단 여백을 줄였습니다 */
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
@@ -138,9 +139,7 @@
         }
     </style>
 </head>
-<body class="movie-mode p-4 pb-20">
-
-    <div class="toggle-container">
+<body class="movie-mode p-0 pb-20"> <div class="toggle-container">
         <button id="toggleBtn" class="toggle-btn" onclick="toggleStyle()">
             ✨ 귀여운 버전으로 보기
         </button>
@@ -215,7 +214,7 @@
             if (isMovieMode) {
                 movieView.classList.add('hidden');
                 cuteView.classList.remove('hidden');
-                body.className = 'cute-mode p-4';
+                body.className = 'cute-mode p-0';
                 toggleBtn.innerText = '🎬 영화 버전으로 보기';
                 toggleBtn.style.color = '#333';
                 toggleBtn.style.background = 'rgba(255, 255, 255, 0.8)';
@@ -223,7 +222,7 @@
             } else {
                 cuteView.classList.add('hidden');
                 movieView.classList.remove('hidden');
-                body.className = 'movie-mode p-4';
+                body.className = 'movie-mode p-0';
                 toggleBtn.innerText = '✨ 귀여운 버전으로 보기';
                 toggleBtn.style.color = 'white';
                 toggleBtn.style.background = 'rgba(255, 255, 255, 0.2)';
