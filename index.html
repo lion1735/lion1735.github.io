@@ -13,6 +13,7 @@
         
         body {
             margin: 0;
+            padding: 0;
             transition: background-color 0.5s ease;
             overflow-x: hidden;
             background-color: var(--movie-bg);
@@ -36,7 +37,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
         
         .toggle-btn:hover {
@@ -44,7 +45,6 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
-        /* 신청하기 버튼 공통 스타일 */
         .apply-btn {
             display: inline-block;
             background: #22c55e;
@@ -57,21 +57,13 @@
             box-shadow: 0 4px 14px 0 rgba(34, 197, 94, 0.39);
         }
 
-        .apply-btn:hover {
-            background: #16a34a;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.23);
-        }
-
-        /* 영화 포스터 스타일 전용 */
-        .movie-mode {
-            background-color: var(--movie-bg);
-        }
-        
+        /* 1번 영화 포스터 스타일 */
         .movie-poster {
             width: 100%;
             max-width: 500px;
-            aspect-ratio: 2 / 3;
+            height: 898px; /* 요청하신 높이 */
+            margin: 0px auto; /* 상단 여백 0 */
+            /* 배경을 다시 시네마틱한 경기장 이미지로 변경하여 겹침 방지 */
             background: 
                 linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 80%, #000 100%),
                 url('https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&q=80&w=1000') center/cover;
@@ -82,10 +74,9 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 4rem 2rem 2rem;
+            padding: 4rem 2rem 3rem;
             text-align: center;
             overflow: hidden;
-            margin: 40px auto;
         }
 
         .movie-poster::after {
@@ -103,22 +94,16 @@
             background: linear-gradient(to bottom, #fff 50%, #777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(255,255,255,0.2));
         }
 
-        /* 귀여운 이미지 뷰어 스타일 */
-        .cute-mode {
-            background-color: #E7F5FF;
-        }
-
+        /* 2번 귀여운 이미지 스타일 */
         .image-container {
             width: 100%;
             max-width: 500px;
-            margin: 40px auto 20px;
-            border-radius: 20px;
+            margin: 0px auto; /* 상단 여백 0 */
+            border-radius: 0 0 20px 20px; /* 위쪽은 딱 붙게 아래만 라운드 */
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 8px solid white;
             background: white;
         }
 
@@ -131,15 +116,15 @@
         .hidden { display: none !important; }
 
         .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.4s ease-out;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
-<body class="movie-mode p-4 pb-20">
+<body class="p-0">
 
     <div class="toggle-container">
         <button id="toggleBtn" class="toggle-btn" onclick="toggleStyle()">
@@ -155,21 +140,20 @@
                 <h1 class="main-title-movie">2026<br>어른이들<br>운동회</h1>
             </div>
 
-            <div class="relative z-10 my-6 bg-white/5 backdrop-blur-md border-y border-white/10 py-4">
+            <div class="relative z-10 my-4 bg-white/5 backdrop-blur-md border-y border-white/10 py-6">
                 <p class="text-[0.6rem] tracking-[0.2em] text-gray-500 mb-2 font-bold uppercase">Main Matches</p>
-                <div class="flex justify-around items-center px-2">
-                    <div class="flex flex-col gap-2">
+                <div class="flex justify-around items-center">
+                    <div class="flex flex-col gap-3">
                         <span class="text-green-400 font-black text-sm">단체 달리기</span>
                         <span class="text-green-400 font-black text-sm">피구</span>
                     </div>
                     <div class="w-[1px] h-10 bg-white/20"></div>
-                    <div class="flex flex-col gap-2">
+                    <div class="flex flex-col gap-3">
                         <span class="text-green-400 font-black text-sm">발야구</span>
                         <span class="text-green-400 font-black text-sm">단체 줄넘기</span>
                     </div>
                 </div>
-                <div class="h-[1px] w-1/2 bg-green-500/30 mx-auto mt-4"></div>
-                <p class="text-green-400 font-black text-lg mt-2 tracking-widest">최종 결전: 계주</p>
+                <p class="text-green-400 font-black text-lg mt-4 tracking-widest">최종 결전: 계주</p>
             </div>
 
             <div class="relative z-10">
@@ -182,10 +166,10 @@
                     </a>
                 </div>
 
-                <div class="text-[0.5rem] text-gray-500 tracking-wider mb-6 opacity-60 leading-relaxed uppercase">
-                    PRESENTED BY ADULT ATHLETIC ASSOCIATION / STARRING YOU AND YOUR FRIENDS / PRODUCED BY SEOUL CITY PARK / SPECIAL LUNCH BOX INCLUDED / ENTRY FEE 40,000 KRW / WINNER TAKES ALL / DO NOT MISS THE LEGENDARY RELAY RACE
+                <div class="text-[0.5rem] text-gray-500 tracking-wider mb-8 opacity-60 uppercase">
+                    PRESENTED BY ADULT ATHLETIC ASSOCIATION / STARRING YOU AND YOUR FRIENDS / PRODUCED BY SEOUL CITY PARK / SPECIAL LUNCH BOX INCLUDED / ENTRY FEE 40,000 KRW
                 </div>
-                <div class="font-black text-3xl mb-1 font-['Black_Han_Sans'] tracking-tighter">2026. 05. 16</div>
+                <div class="font-black text-4xl mb-1 font-['Black_Han_Sans'] tracking-tighter">2026. 05. 16</div>
                 <p class="text-xs tracking-widest text-gray-300">SAT 10:00 AM | 뚝섬한강공원 축구장 2</p>
             </div>
         </div>
@@ -193,10 +177,10 @@
 
     <div id="cuteView" class="hidden fade-in text-center">
         <div class="image-container">
-            <img src="214b2eee-db15-4d8e-88db-f691aca5283a.jpeg" alt="2026 어른이들 운동회 귀여운 포스터" onerror="this.onerror=null; this.src='https://via.placeholder.com/500x880?text=이미지를+불러올+수+없습니다';">
+            <img src="214b2eee-db15-4d8e-88db-f691aca5283a.jpeg" alt="2026 어른이들 운동회 귀여운 포스터">
         </div>
         
-        <div class="mb-10">
+        <div class="py-10">
             <a href="https://www.notion.so/2e00a94fd11f814dadc1f89fa8d9e4e8?pvs=106" target="_blank" class="apply-btn" style="background: #FF6B6B; box-shadow: 0 4px 14px rgba(255, 107, 107, 0.4);">
                 운동회 신청하기
             </a>
@@ -216,19 +200,17 @@
             if (isMovieMode) {
                 movieView.classList.add('hidden');
                 cuteView.classList.remove('hidden');
-                body.className = 'cute-mode p-4';
+                body.style.backgroundColor = '#E7F5FF';
                 toggleBtn.innerText = '🎬 영화 버전으로 보기';
                 toggleBtn.style.color = '#333';
                 toggleBtn.style.background = 'rgba(255, 255, 255, 0.8)';
-                toggleBtn.style.borderColor = '#333';
             } else {
                 cuteView.classList.add('hidden');
                 movieView.classList.remove('hidden');
-                body.className = 'movie-mode p-4';
+                body.style.backgroundColor = '#050505';
                 toggleBtn.innerText = '✨ 귀여운 버전으로 보기';
                 toggleBtn.style.color = 'white';
                 toggleBtn.style.background = 'rgba(255, 255, 255, 0.2)';
-                toggleBtn.style.borderColor = 'rgba(255, 255, 255, 0.3)';
             }
             isMovieMode = !isMovieMode;
         }
