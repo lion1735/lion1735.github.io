@@ -61,9 +61,7 @@
         .movie-poster {
             width: 100%;
             max-width: 500px;
-            height: 898px; /* 요청하신 높이 */
-            margin: 0px auto; /* 상단 여백 0 */
-            /* 배경을 다시 시네마틱한 경기장 이미지로 변경하여 겹침 방지 */
+            margin: 0 auto; 
             background: 
                 linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 80%, #000 100%),
                 url('https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&q=80&w=1000') center/cover;
@@ -100,8 +98,8 @@
         .image-container {
             width: 100%;
             max-width: 500px;
-            margin: 0px auto; /* 상단 여백 0 */
-            border-radius: 0 0 20px 20px; /* 위쪽은 딱 붙게 아래만 라운드 */
+            margin: 0 auto;
+            border-radius: 0 0 20px 20px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             background: white;
@@ -133,7 +131,7 @@
     </div>
 
     <div id="movieView" class="fade-in">
-        <div class="movie-poster">
+        <div class="movie-poster" style="height: 898px; margin-top: 0px;">
             <div class="relative z-10">
                 <p class="text-[0.6rem] tracking-[0.5em] text-gray-400 font-bold mb-4 uppercase">A Legendary Spring Event</p>
                 <p class="text-xs font-light tracking-[0.3em] text-green-400 mb-2">다시 뛰는 심장, 그날의 열기 그대로</p>
